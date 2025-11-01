@@ -1,0 +1,22 @@
+[package]
+name = "simple_clock"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+lotus-extra = "0.2"
+lotus-script = { version = "0.7", features = ["time"] }
+
+[lib]
+crate-type = ["cdylib"]
+
+[profile.release]
+opt-level = 3
+lto = true
+debug = false
+panic = "abort"
+strip = true
+codegen-units = 1
+
+[profile.dev]
+opt-level = 1
